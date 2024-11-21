@@ -13,8 +13,14 @@ public class ApiController {
 
     @Autowired
     private userRepo userRepo;
+
+    @Autowired
     private companyRepo companyRepo;
+
+    @Autowired
     private contactRepo contactRepo;
+
+    @Autowired
     private invoiceRepo invoiceRepo;
 
     @GetMapping("/")
@@ -28,12 +34,12 @@ public class ApiController {
     }
 
     @GetMapping("/companies")
-    public List<Company> getCompany() {
+    public List<Company> getCompanies() {
         return companyRepo.findAll();
     }
 
-    @GetMapping("/contact")
-    public List<Contact> getContact() {
+    @GetMapping("/contacts")
+    public List<Contact> getContacts() {
         return contactRepo.findAll();
     }
 

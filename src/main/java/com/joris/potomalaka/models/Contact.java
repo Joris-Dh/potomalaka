@@ -25,7 +25,7 @@ public class Contact {
     private String timestamp;
 
     @Column
-    private int contactCompanyId;
+    private long contactCompanyId;
 
     public long getId() {
         return id;
@@ -75,11 +75,11 @@ public class Contact {
         this.timestamp = timestamp;
     }
 
-    public int getContactCompanyId() {
+    public long getContactCompanyId() {
         return contactCompanyId;
     }
 
-    public void setContactCompanyId(int contactCompanyId) {
+    public void setContactCompanyId(long contactCompanyId) {
         this.contactCompanyId = contactCompanyId;
     }
 }

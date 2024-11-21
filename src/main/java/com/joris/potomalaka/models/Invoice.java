@@ -13,10 +13,10 @@ public class Invoice {
     private String timestamp;
 
     @Column
-    private int invoiceCompanyId;
+    private long invoiceCompanyId;
 
     @Column
-    private int invoiceContactId;
+    private long invoiceContactId;
 
     public long getId() {
         return id;
@@ -34,7 +34,7 @@ public class Invoice {
         this.timestamp = timestamp;
     }
 
-    public int getInvoiceCompanyId() {
+    public long getInvoiceCompanyId() {
         return invoiceCompanyId;
     }
 
@@ -42,7 +42,7 @@ public class Invoice {
         this.invoiceCompanyId = invoiceCompanyId;
     }
 
-    public int getInvoiceContactId() {
+    public long getInvoiceContactId() {
         return invoiceContactId;
     }
 
