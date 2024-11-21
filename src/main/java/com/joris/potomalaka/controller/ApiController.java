@@ -3,8 +3,7 @@ package com.joris.potomalaka.controller;
 import com.joris.potomalaka.models.*;
 import com.joris.potomalaka.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,13 +12,10 @@ public class ApiController {
 
     @Autowired
     private userRepo userRepo;
-
     @Autowired
     private companyRepo companyRepo;
-
     @Autowired
     private contactRepo contactRepo;
-
     @Autowired
     private invoiceRepo invoiceRepo;
 
@@ -47,5 +43,31 @@ public class ApiController {
     public List<Invoice> getInvoices() {
         return invoiceRepo.findAll();
     }
+
+    @PostMapping("/save-user")
+    public String saveUser(@RequestBody User user) {
+        userRepo.save(user);
+        return "User saved...";
+    }
+
+    @PostMapping("/save-company")
+    public String saveCompany(@RequestBody Company company) {
+        companyRepo.save(company);
+        return "Company saved...";
+    }
+
+    @PostMapping("/save-contact")
+    public String saveContact(@RequestBody Contact contact) {
+        contactRepo.save(contact);
+        return "Contact saved...";
+    }
+
+    @PostMapping("/save-invoice")
+    public String saveInvoice(@RequestBody Invoice invoice) {
+        invoiceRepo.save(invoice);
+        return "Invoice saved...";
+    }
+
+
 
 }
