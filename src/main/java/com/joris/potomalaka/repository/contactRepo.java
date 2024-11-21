@@ -1,4 +1,7 @@
 package com.joris.potomalaka.repository;
 
-public interface contactRepo {
+import com.joris.potomalaka.models.Contact;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface contactRepo extends JpaRepository<Contact, Long> {
 }
