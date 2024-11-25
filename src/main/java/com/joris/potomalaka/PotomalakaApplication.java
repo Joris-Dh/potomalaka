@@ -10,10 +10,10 @@ public class PotomalakaApplication {
 
 	public static void main(String[] args) {
         SpringApplication.run(PotomalakaApplication.class, args);
-//        Scanner scanner = new Scanner(System.in);
-//
-//        UserInterface ui = new UserInterface(scanner);
-//        ui.start();
+        Scanner scanner = new Scanner(System.in);
+
+        UserInterface ui = new UserInterface(scanner);
+        ui.start();
 	}
 
 }
