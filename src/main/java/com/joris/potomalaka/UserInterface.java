@@ -7,7 +7,7 @@ import static com.joris.potomalaka.Service.UserService.*;
 
 public class UserInterface {
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public UserInterface(Scanner scanner) {
         this.scanner = scanner;
