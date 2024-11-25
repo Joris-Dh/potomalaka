@@ -38,7 +38,7 @@ public class Invoice {
         return invoiceCompanyId;
     }
 
-    public void setInvoiceCompanyId(int invoiceCompanyId) {
+    public void setInvoiceCompanyId(long invoiceCompanyId) {
         this.invoiceCompanyId = invoiceCompanyId;
     }
 
@@ -46,7 +46,7 @@ public class Invoice {
         return invoiceContactId;
     }
 
-    public void setInvoiceContactId(int invoiceContactId) {
+    public void setInvoiceContactId(long invoiceContactId) {
         this.invoiceContactId = invoiceContactId;
     }
 }
