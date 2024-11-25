@@ -3,7 +3,7 @@ package com.joris.potomalaka;
 import org.springframework.web.client.RestTemplate;
 import java.util.Scanner;
 
-import static com.joris.potomalaka.Service.UserService.*;
+import static com.joris.potomalaka.service.UserService.*;
 
 public class UserInterface {
 
@@ -18,13 +18,16 @@ public class UserInterface {
         boolean running = true;
 
         while (running) {
-            System.out.println("\nWelcome to our Management CLI");
-            System.out.println("1. Access Invoices");
-            System.out.println("2. Access Companies");
-            System.out.println("3. Access Contacts");
-            System.out.println("4. Access Users");
+            System.out.println("\n--------------------------------------");
+            System.out.println("Welcome to our Data Management Tool!");
+            System.out.println("What topic would you like to access?");
+            System.out.println("--------------------------------------");
+            System.out.println("\n1. Invoices platform");
+            System.out.println("2. Companies platform");
+            System.out.println("3. Contacts platform");
+            System.out.println("4. Users platform");
             System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.print("\nEnter your choice: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -46,11 +49,14 @@ public class UserInterface {
                     boolean userPlatformRunning = true;
                     while (userPlatformRunning) {
                         // Display Menu
-                        System.out.println("\nWelcome to our User Platform");
+                        System.out.println("\nUser Data Platform");
+                        System.out.println("--------------------------------------");
                         System.out.println("1. View All Users");
                         System.out.println("2. Add New User");
-                        System.out.println("3. Exit");
-                        System.out.print("Enter your choice: ");
+                        System.out.println("3. Update User");
+                        System.out.println("4. Delete User");
+                        System.out.println("5. Exit");
+                        System.out.print("\nEnter your choice: ");
 
                         int choiceCase4 = scanner.nextInt();
                         scanner.nextLine(); // Consume newline
@@ -67,6 +73,16 @@ public class UserInterface {
                                 break;
 
                             case 3:
+                                // Add a new user
+                                updateUser(restTemplate, scanner);
+                                break;
+
+                            case 4:
+                                // Delete a new user
+                                deleteUser(restTemplate, scanner);
+                                break;
+
+                            case 5:
                                 // Exit the application
                                 userPlatformRunning = false;
                                 System.out.println("Returning to main menu...");

@@ -18,6 +18,17 @@ public class User {
     @Column
     private String role;
 
+    public User(long userId, String username, String password, String role) {
+        this.id = userId;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User() {
+
+    }
+
     public long getId() {
         return id;
     }
