@@ -24,6 +24,19 @@ public class Company {
     @Column
     private String timestamp;
 
+    public Company(long companyId, String newName, String newCountry, String newTimestamp, String newType, String newVat) {
+        this.id = companyId;
+        this.name = newName;
+        this.country = newCountry;
+        this.timestamp = newTimestamp;
+        this.type = newType;
+        this.vat = newVat;
+    }
+
+    public Company() {
+
+    }
+
     public long getId() {
         return id;
     }

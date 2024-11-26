@@ -13,7 +13,6 @@ public class UserService {
     private static final String DELETE_USER_URL = "http://localhost:8080/delete/user/{Id}";
     private static final String UPDATE_USER_URL = "http://localhost:8080/update/user/{Id}";
 
-
     //VIEW ALL USERS
     public static void viewAllUsers(RestTemplate restTemplate) {
         try {
@@ -87,7 +86,7 @@ public class UserService {
             System.out.println("What's the ID of the User you want to delete?");
             String input = scanner.nextLine();
             restTemplate.delete(DELETE_USER_URL, input);
-            System.out.println("User with ID " + input + " has been deleted.");
+            System.out.println("\nUser with ID " + input + " has been deleted.");
         } catch (Exception e) {
             System.out.println("Error adding user: " + e.getMessage());
         }

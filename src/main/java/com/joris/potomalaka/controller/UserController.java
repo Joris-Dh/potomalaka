@@ -23,7 +23,7 @@ public class UserController {
     @PostMapping("/save-user")
     public String saveUser(@RequestBody User user) {
         userRepo.save(user);
-        return "User saved...";
+        return "\nUser saved...";
     }
 
     //PUT REQUESTS
