@@ -88,7 +88,7 @@ public class ContactService {
         }
     }
 
-    //DELETE USER
+    //DELETE CONTACT
     public static void deleteContact(RestTemplate restTemplate, Scanner scanner) {
         try {
             System.out.println("What's the ID of the Contact you want to delete?");

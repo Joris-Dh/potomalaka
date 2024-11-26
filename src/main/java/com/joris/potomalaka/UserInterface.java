@@ -3,6 +3,7 @@ package com.joris.potomalaka;
 import org.springframework.web.client.RestTemplate;
 import java.util.Scanner;
 
+import static com.joris.potomalaka.service.InvoiceService.*;
 import static com.joris.potomalaka.service.UserService.*;
 import static com.joris.potomalaka.service.CompanyService.*;
 import static com.joris.potomalaka.service.ContactService.*;
@@ -38,7 +39,42 @@ public class UserInterface {
 
                 // INVOICES
                 case 1:
-                    System.out.println("output of choice 1");
+                    boolean invoicePlatformRunning = true;
+
+                    while (invoicePlatformRunning) {
+                        System.out.println("\nInvoice Data Platform");
+                        System.out.println("--------------------------------------");
+                        System.out.println("1. View All Invoices");
+                        System.out.println("2. Add New Invoice");
+                        System.out.println("3. Update Invoice");
+                        System.out.println("4. Delete Invoice");
+                        System.out.println("5. Return");
+                        System.out.print("\nEnter your choice: ");
+
+                        int choiceCase1 = scanner.nextInt();
+                        scanner.nextLine(); // Consume newline
+
+                        switch (choiceCase1) {
+                            case 1:
+                                viewAllInvoices(restTemplate);
+                                break;
+                            case 2:
+                                addNewInvoice(restTemplate, scanner);
+                                break;
+                            case 3:
+                                updateInvoice(restTemplate, scanner);
+                                break;
+                            case 4:
+                                deleteInvoice(restTemplate, scanner);
+                                break;
+                            case 5:
+                                invoicePlatformRunning = false;
+                                System.out.println("Returning to main menu...");
+                                break;
+                            default:
+                                System.out.println("Invalid choice. Please try again.");
+                        }
+                    }
                     break;
 
                 // COMPANIES
@@ -62,24 +98,19 @@ public class UserInterface {
                             case 1:
                                 viewAllCompanies(restTemplate);
                                 break;
-
                             case 2:
                                 addNewCompany(restTemplate, scanner);
                                 break;
-
                             case 3:
                                 updateCompany(restTemplate, scanner);
                                 break;
-
                             case 4:
                                 deleteCompany(restTemplate, scanner);
                                 break;
-
                             case 5:
                                 companyPlatformRunning = false;
                                 System.out.println("Returning to main menu...");
                                 break;
-
                             default:
                                 System.out.println("Invalid choice. Please try again.");
                         }
@@ -107,24 +138,19 @@ public class UserInterface {
                             case 1:
                                 viewAllContacts(restTemplate);
                                 break;
-
                             case 2:
                                 addNewContact(restTemplate, scanner);
                                 break;
-
                             case 3:
                                 updateContact(restTemplate, scanner);
                                 break;
-
                             case 4:
                                 deleteContact(restTemplate, scanner);
                                 break;
-
                             case 5:
                                 contactPlatformRunning = false;
                                 System.out.println("Returning to main menu...");
                                 break;
-
                             default:
                                 System.out.println("Invalid choice. Please try again.");
                         }
@@ -152,24 +178,19 @@ public class UserInterface {
                             case 1:
                                 viewAllUsers(restTemplate);
                                 break;
-
                             case 2:
                                 addNewUser(restTemplate, scanner);
                                 break;
-
                             case 3:
                                 updateUser(restTemplate, scanner);
                                 break;
-
                             case 4:
                                 deleteUser(restTemplate, scanner);
                                 break;
-
                             case 5:
                                 userPlatformRunning = false;
                                 System.out.println("Returning to main menu...");
                                 break;
-
                             default:
                                 System.out.println("Invalid choice. Please try again.");
                         }
