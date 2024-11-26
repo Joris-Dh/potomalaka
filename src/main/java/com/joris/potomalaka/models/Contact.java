@@ -27,6 +27,20 @@ public class Contact {
     @Column
     private long contactCompanyId;
 
+    public Contact(long contactId, String newFirstName, String newLastName, String newPhone, String newEmail, String newTimestamp, long newContactCompanyId) {
+        this.id = contactId;
+        this.firstName = newFirstName;
+        this.lastName = newLastName;
+        this.phone = newPhone;
+        this.email = newEmail;
+        this.timestamp = newTimestamp;
+        this.contactCompanyId = newContactCompanyId;
+    }
+
+    public Contact() {
+
+    }
+
     public long getId() {
         return id;
     }

@@ -19,63 +19,71 @@ public class ContactService {
             Contact[] contactsArray = restTemplate.getForObject(API_URL, Contact[].class);
             List<Contact> contacts = Arrays.asList(contactsArray);
             System.out.println("\nContact List:");
-            System.out.printf("%-5s %-20s %-10s\n", "ID", "Username", "Role");
-            System.out.println("--------------------------------------");
+            System.out.printf("%-5s %-15s %-15s %-20s %-35s %-20s %-20s\n", "ID", "Firstname", "Lastname", "Phone", "Email", "Timestamp", "Contact Company ID");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
             for (Contact contact : contacts) {
-                System.out.printf("%-5d %-20s %-10s\n", user.getId(), user.getUsername(), user.getRole());
+                System.out.printf("%-5s %-15s %-15s %-20s %-35s %-20s %-20s\n", contact.getId(), contact.getFirstName(), contact.getLastName(), contact.getPhone(), contact.getEmail(), contact.getTimestamp(), contact.getContactCompanyId());
             }
         } catch (Exception e) {
             System.out.println("Error fetching users: " + e.getMessage());
         }
     }
 
-    //ADD NEW USER
-    public static void addNewUser(RestTemplate restTemplate, Scanner scanner) {
+    //ADD NEW CONTACT
+    public static void addNewContact(RestTemplate restTemplate, Scanner scanner) {
         try {
-            System.out.print("Enter Username: ");
-            String username = scanner.nextLine();
-            System.out.print("Enter Password: ");
-            String password = scanner.nextLine();
-            System.out.print("Enter Role: ");
-            String role = scanner.nextLine();
+            System.out.print("Enter Firstname: ");
+            String firstName = scanner.nextLine();
+            System.out.print("Enter Lastname: ");
+            String lastName = scanner.nextLine();
+            System.out.print("Enter Phone: ");
+            String phone = scanner.nextLine();
+            System.out.print("Enter Email: ");
+            String email = scanner.nextLine();
+            System.out.print("Enter Timestamp: ");
+            String timestamp = scanner.nextLine();
+            System.out.print("Enter Contact Company ID: ");
+            long contactCompanyId = Long.parseLong(scanner.nextLine());
 
-            User newUser = new User();
-            newUser.setUsername(username);
-            newUser.setPassword(password);
-            newUser.setRole(role);
+            Contact newContact = new Contact();
+            newContact.setFirstName(firstName);
+            newContact.setLastName(lastName);
+            newContact.setPhone(phone);
+            newContact.setEmail(email);
+            newContact.setTimestamp(timestamp);
+            newContact.setContactCompanyId(contactCompanyId);
 
-            String response = restTemplate.postForObject(SAVE_USER_URL, newUser, String.class);
+            String response = restTemplate.postForObject(SAVE_CONTACT_URL, newContact, String.class);
             System.out.println(response);
         } catch (Exception e) {
-            System.out.println("Error adding user: " + e.getMessage());
+            System.out.println("Error adding contact: " + e.getMessage());
         }
     }
 
-    //UPDATE USER
-    public static void updateUser(RestTemplate restTemplate, Scanner scanner) {
+    //UPDATE CONTACT
+    public static void updateContact(RestTemplate restTemplate, Scanner scanner) {
         try {
-            System.out.println("What's the ID of the User you want to update?");
-            long userId = Long.parseLong(scanner.nextLine());
+            System.out.println("What's the ID of the Contact you want to update?");
+            long contactId = Long.parseLong(scanner.nextLine());
 
-            System.out.println("Enter new username:");
-            String newUsername = scanner.nextLine();
-            System.out.println("Enter new password:");
-            String newPassword = scanner.nextLine();
-            System.out.println("Enter new role:");
-            String newRole = scanner.nextLine();
+            System.out.println("Enter new Firstname:");
+            String newFirstName = scanner.nextLine();
+            System.out.println("Enter new Lastname:");
+            String newLastName = scanner.nextLine();
+            System.out.println("Enter new Phone:");
+            String newPhone = scanner.nextLine();
+            System.out.println("Enter new Email:");
+            String newEmail = scanner.nextLine();
+            System.out.println("Enter new Timestamp:");
+            String newTimestamp = scanner.nextLine();
+            System.out.println("Enter new Contact Company Id:");
+            long newContactCompanyId = Long.parseLong(scanner.nextLine());
 
-            // Validate required fields
-            if (newUsername.isEmpty() || newPassword.isEmpty() || newRole.isEmpty()) {
-                System.out.println("All fields (username, password, role) are required. Please try again.");
-                return;
-            }
-
-            User updatedUser = new User(userId, newUsername, newPassword, newRole);
-            restTemplate.put(UPDATE_USER_URL, updatedUser, userId);
-            System.out.println("\nUser with ID " + userId + " has been updated.");
+            Contact updatedContact = new Contact(contactId, newFirstName, newLastName, newPhone, newEmail, newTimestamp, newContactCompanyId);
+            restTemplate.put(UPDATE_CONTACT_URL, updatedContact, contactId);
+            System.out.println("\nUser with ID " + contactId + " has been updated.");
 
         } catch (Exception e) {
-            // Handle errors (e.g., invalid input, server issues)
             System.out.println("Error occurred while updating user: " + e.getMessage());
         }
     }

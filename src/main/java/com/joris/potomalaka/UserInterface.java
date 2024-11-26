@@ -109,11 +109,11 @@ public class UserInterface {
                                 break;
 
                             case 2:
-                                addNewUser(restTemplate, scanner);
+                                addNewContact(restTemplate, scanner);
                                 break;
 
                             case 3:
-                                updateUser(restTemplate, scanner);
+                                updateContact(restTemplate, scanner);
                                 break;
 
                             case 4:
