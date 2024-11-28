@@ -12,8 +12,8 @@ public class PotomalakaApplication {
         SpringApplication.run(PotomalakaApplication.class, args);
         Scanner scanner = new Scanner(System.in);
 
-        UserInterface ui = new UserInterface(scanner);
-        ui.start();
+//        UserInterface ui = new UserInterface(scanner);
+//        ui.start();
 	}
 
 }

@@ -1,7 +1,7 @@
 package com.joris.potomalaka.controller;
 
-import com.joris.potomalaka.models.Company;
-import com.joris.potomalaka.repository.companyRepo;
+import com.joris.potomalaka.model.Company;
+import com.joris.potomalaka.repo.companyRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

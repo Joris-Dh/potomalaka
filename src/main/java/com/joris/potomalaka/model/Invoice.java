@@ -1,4 +1,4 @@
-package com.joris.potomalaka.models;
+package com.joris.potomalaka.model;
 
 import jakarta.persistence.*;
 

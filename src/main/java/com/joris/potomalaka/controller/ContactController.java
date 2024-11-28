@@ -1,7 +1,7 @@
 package com.joris.potomalaka.controller;
 
-import com.joris.potomalaka.models.Contact;
-import com.joris.potomalaka.repository.contactRepo;
+import com.joris.potomalaka.model.Contact;
+import com.joris.potomalaka.repo.contactRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

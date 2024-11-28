@@ -1,6 +1,6 @@
-package com.joris.potomalaka.repository;
+package com.joris.potomalaka.repo;
 
-import com.joris.potomalaka.models.Company;
+import com.joris.potomalaka.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface companyRepo extends JpaRepository<Company, Long> {

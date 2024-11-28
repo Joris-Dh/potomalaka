@@ -1,8 +1,10 @@
 package com.joris.potomalaka.controller;
 
-import com.joris.potomalaka.models.User;
-import com.joris.potomalaka.repository.userRepo;
+import com.joris.potomalaka.model.User;
+import com.joris.potomalaka.repo.userRepo;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +15,20 @@ public class UserController {
     @Autowired
     private userRepo userRepo;
 
+    @GetMapping("/")
+    public String greet(HttpServletRequest request) {
+        return "Hello there "+ request.getSession().getId();
+    }
+
     //GET REQUESTS
     @GetMapping("/users")
     public List<User> getUsers() {
         return userRepo.findAll();
+    }
+
+    @GetMapping("/csrf-token")
+    public CsrfToken getCsrfToken(HttpServletRequest request) {
+        return (CsrfToken) request.getAttribute("_csrf");
     }
 
     //POST REQUESTS

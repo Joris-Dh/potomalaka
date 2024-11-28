@@ -1,7 +1,7 @@
 package com.joris.potomalaka.controller;
 
-import com.joris.potomalaka.models.Invoice;
-import com.joris.potomalaka.repository.invoiceRepo;
+import com.joris.potomalaka.model.Invoice;
+import com.joris.potomalaka.repo.invoiceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
